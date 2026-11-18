@@ -415,10 +415,7 @@ app.on('update',dt=>{
   if(state.aiming){const cp=cameraEntity.getPosition(),cf=cameraEntity.forward;let ld=150;for(let d=5;d<=150;d+=1.5){const rx=cp.x+cf.x*d,ry=cp.y+cf.y*d,rz=cp.z+cf.z*d;if((Math.abs(rz-PAPER_POS.z)<1&&Math.abs(rx-PAPER_POS.x)<.7&&Math.abs(ry-PAPER_POS.y)<.7)||ry<=terrainHeight(rx,rz)){ld=d;break;}}telRangeEl.textContent=`LRF: ${ld.toFixed(1)} M`;}
 });
 updateWeaponHUD();
-</script>
-</body>
-</html>
-app.assets.loadFromUrl('sky.jpg', 'texture', (err, asset) => {
+  app.assets.loadFromUrl('sky.jpg', 'texture', (err, asset) => {
   if (err) return console.error(err);
   const tex = asset.resource;
   skyDome.enabled = false;
@@ -428,3 +425,7 @@ app.assets.loadFromUrl('sky.jpg', 'texture', (err, asset) => {
   lighting.destroy();
   app.scene.skyboxIntensity = 1.2;
 });
+</script>
+</body>
+</html>
+
