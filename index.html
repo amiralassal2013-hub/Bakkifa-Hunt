@@ -425,6 +425,16 @@ updateWeaponHUD();
   lighting.destroy();
   app.scene.skyboxIntensity = 1.2;
 });
+  app.assets.loadFromUrl('ground.jpg', 'texture', (err, asset) => {
+  if (err) return console.error(err);
+  app.root.children.forEach((node) => {
+    const mi = node.render && node.render.meshInstances[0];
+    if (mi && mi.material && mi.material.diffuseVertexColor) {
+      mi.material.diffuseMap = asset.resource;
+      mi.material.update();
+    }
+  });
+});
 </script>
 </body>
 </html>
